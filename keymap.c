@@ -27,7 +27,7 @@ enum {
   GME_1 = 0,
   GME_2 = 0,
   GME_3 = 0,
-  GME_4 = 0,
+  TT_HY = 0,
 };
 
 
