@@ -31,6 +31,14 @@ enum {
 };
 
 
+//Tap Dance Definitions
+  qk_tap_dance_action_t tap_dance_actions[] = {
+  [GME_1] = ACTION_TAP_DANCE_DOUBLE(KC_1, KC_4),
+  [GME_2] = ACTION_TAP_DANCE_DOUBLE(KC_2, KC_5), // Tap once for 2tap twice for 5
+  [GME_3] = ACTION_TAP_DANCE_DOUBLE(KC_3, KC_6), // Tap once for 3 tap twice for 6
+  [TT_HY] = ACTION_TAP_DANCE_DOUBLE(KC_T, KC_Y),  // Tap once for T tap twice for Y
+}; // Fillers to make layering more clear
+
 #define _______ KC_TRNS
 #define XXXXXXX KC_NO
 #define KC_TD TD
@@ -48,13 +56,6 @@ enum {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-//Tap Dance Definitions
- qk_tap_dance_action_t tap_dance_actions[] = {
-  [GME_1] = ACTION_TAP_DANCE_DOUBLE(KC_1, KC_4),
-  [GME_2] = ACTION_TAP_DANCE_DOUBLE(KC_2, KC_5), // Tap once for 2tap twice for 5
-  [GME_3] = ACTION_TAP_DANCE_DOUBLE(KC_3, KC_6), // Tap once for 3 tap twice for 6
-  [TT_HY] = ACTION_TAP_DANCE_DOUBLE(KC_T, KC_Y),  // Tap once for T tap twice for Y
-}; // Fillers to make layering more clear
 
 
 /* Qwerty
@@ -171,7 +172,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           PLAY_SONG(tone_colemak);
         #endif
         persistent_default_layer_set(1UL<<_GAMING);
- switch (keycode) {
+		}
     case LOWER:
       if (record->event.pressed) {
         layer_on(_LOWER);
